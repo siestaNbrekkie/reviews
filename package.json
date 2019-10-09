@@ -1,0 +1,36 @@
+{
+  "name": "reviews",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siestaNbrekkie/reviews.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.17.0",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jquery": "^3.1.1",
+    "mongoose": "^4.6.4",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "request": "^2.75.0"
+  },
+  "devDependencies": {
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "nodemon": "^1.11.0",
+    "webpack": "^1.13.2"
+  },
+  "bugs": {
+    "url": "https://github.com/siestaNbrekkie/reviews/issues"
+  },
+  "homepage": "https://github.com/siestaNbrekkie/reviews#readme"
+}
