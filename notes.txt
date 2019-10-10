@@ -1,0 +1,1 @@
+Create new branch, create database, create connection, create seeding script, create a couple dummy data sets, ensure database is seeded with dummy data after running script
