@@ -45,9 +45,9 @@ var endDate = new Date(2019, 10, 10);
 
 var populator = function () {
 
-  for (var i = 1; i <= 1; i ++) {
+  for (var i = 1; i <= 10; i ++) {
     var start = 0;
-    while (start <= 3) {
+    while (start <= 10) {
       var each = {
         houseId: i,
         guestName: faker.name.findName(),
