@@ -32,6 +32,8 @@ var reviewSchema = new mongoose.Schema({
 
 var Review = mongoose.model('Review', reviewSchema);
 
+Review.deleteMany()
+
 var data = [];
 
 var zeroThroughFive = function getRandomArbitrary(min, max) {
@@ -75,7 +77,10 @@ var populator = function () {
 
 populator();
 
+
 Review.insertMany(data);
+
+module.exports = Review;
 
 // var data = [{houseId: 4, guestImage: 'vinh'} , {houseId: 5, guestImage: 'derek'}]
 // Review.insertMany(data);
