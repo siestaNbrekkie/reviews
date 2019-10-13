@@ -9,10 +9,10 @@ const PORT = 3000;
 
 app.use('/', express.static(path.join(__dirname, '../public'))); //rooms/:id
 
-app.get('/hi', (req, res) => { // need to make app.get('/:id)
+app.get('/reviews', (req, res) => { // need to make app.get('/:id)
     Review.find()
       .then(function(callback){
-        console.log('this is the callback ', callback)
+        // console.log('this is the callback ', callback)
         res.send(callback);
       })
 });

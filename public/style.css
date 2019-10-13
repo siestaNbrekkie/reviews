@@ -1,0 +1,50 @@
+body{
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+  color: #484848;
+}
+
+#reviewContainer {
+
+}
+
+#review {
+  border-bottom: 2px;
+  border-bottom-color: #484848;
+  font-size: 14px;
+  padding-bottom: 25px;
+  padding-top: 25px;
+}
+
+#guestImage {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+#header{
+  font-size: 24px;
+  font-weight: 625;
+}
+
+#guestDetail {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+#guestImageCont{
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+}
+/* #guestName {
+
+}
+
+#guestDate {
+
+}
+
+#guestReview {
+
+} */

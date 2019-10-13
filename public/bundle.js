@@ -63,6 +63,10 @@
 	
 	var _axios2 = _interopRequireDefault(_axios);
 	
+	var _ReviewList = __webpack_require__(/*! ./ReviewList.jsx */ 213);
+	
+	var _ReviewList2 = _interopRequireDefault(_ReviewList);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -80,7 +84,7 @@
 	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 	
 	    _this.state = {
-	      data: 'hello'
+	      data: []
 	    };
 	    return _this;
 	  }
@@ -95,7 +99,7 @@
 	    value: function getData() {
 	      var _this2 = this;
 	
-	      _axios2.default.get('/hi').then(function (response) {
+	      _axios2.default.get('/reviews').then(function (response) {
 	        console.log('this is data ', response.data);
 	        _this2.setState({
 	          data: response.data
@@ -108,7 +112,16 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        this.state.data[0].hostName
+	        _react2.default.createElement(
+	          'h1',
+	          { id: 'header' },
+	          'Reviews'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(_ReviewList2.default, { reviews: this.state.data })
+	        )
 	      );
 	    }
 	  }]);
@@ -24601,6 +24614,154 @@
 	  };
 	};
 
+
+/***/ }),
+/* 213 */
+/*!*******************************!*\
+  !*** ./client/ReviewList.jsx ***!
+  \*******************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _ReviewListItem = __webpack_require__(/*! ./ReviewListItem.jsx */ 214);
+	
+	var _ReviewListItem2 = _interopRequireDefault(_ReviewListItem);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ReviewList = function (_React$Component) {
+	  _inherits(ReviewList, _React$Component);
+	
+	  function ReviewList(props) {
+	    _classCallCheck(this, ReviewList);
+	
+	    return _possibleConstructorReturn(this, (ReviewList.__proto__ || Object.getPrototypeOf(ReviewList)).call(this, props));
+	  }
+	
+	  _createClass(ReviewList, [{
+	    key: 'render',
+	    value: function render() {
+	      var reviews = this.props.reviews;
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        reviews.map(function (review) {
+	          return _react2.default.createElement(_ReviewListItem2.default, {
+	            key: review.guestName,
+	            value: review
+	          });
+	        })
+	      );
+	    }
+	  }]);
+	
+	  return ReviewList;
+	}(_react2.default.Component);
+	
+	exports.default = ReviewList;
+
+/***/ }),
+/* 214 */
+/*!***********************************!*\
+  !*** ./client/ReviewListItem.jsx ***!
+  \***********************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ReviewListItem = function (_React$Component) {
+	  _inherits(ReviewListItem, _React$Component);
+	
+	  function ReviewListItem(props) {
+	    _classCallCheck(this, ReviewListItem);
+	
+	    return _possibleConstructorReturn(this, (ReviewListItem.__proto__ || Object.getPrototypeOf(ReviewListItem)).call(this, props));
+	  }
+	
+	  _createClass(ReviewListItem, [{
+	    key: 'render',
+	    value: function render() {
+	      var reviewItem = this.props.value;
+	      console.log('this is review item in ReviewListItem ', { reviewItem: reviewItem });
+	      //const item = reviewItem.map()
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { id: 'reviewContainer' },
+	          _react2.default.createElement(
+	            'div',
+	            { id: 'review' },
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'guestImageCont' },
+	              _react2.default.createElement('img', { id: 'guestImage', src: reviewItem.guestImage }),
+	              _react2.default.createElement(
+	                'div',
+	                { id: 'guestDetail' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { id: 'guestName' },
+	                  reviewItem.guestName
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { id: 'guestDate' },
+	                  reviewItem.date
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'guestReview' },
+	              reviewItem.guestReview
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return ReviewListItem;
+	}(_react2.default.Component);
+	
+	exports.default = ReviewListItem;
 
 /***/ })
 /******/ ]);

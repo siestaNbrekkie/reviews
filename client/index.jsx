@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Axios from 'axios';
+import ReviewList from './ReviewList.jsx';
 
 
 
@@ -8,7 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: 'hello'
+      data: []
     };
   }
 
@@ -17,7 +18,7 @@ class App extends React.Component {
   };
 
   getData() {
-    Axios.get('/hi')
+    Axios.get('/reviews')
       .then(response => {
         console.log('this is data ', response.data)
         this.setState ({
@@ -30,8 +31,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <ReviewList {this.state.data}/>
-        {/* {this.state.data[0].hostName} */}
+        <h1 id="header">Reviews</h1>
+        <div>
+          <ReviewList reviews={this.state.data}/>
+        </div>
       </div>
     )
   }
