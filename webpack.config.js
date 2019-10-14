@@ -1,31 +1,27 @@
-var webpack = require('webpack');
 var path = require('path');
 
 
-var config = {
-  entry: "./client/index.jsx",
-    output: {
-      filename: "main.js",
-      path: path.resolve(__dirname, "public")
-    },
-    resolve: {
-      extensions: [".jsx", ".js", ".json"]
-    },
+var APP_DIR = path.resolve(__dirname, 'client')
+var BUILD_DIR = path.resolve(__dirname, './public')
 
-    module: {
-      rules: [
-        {
-          test: /\.(js | jsx)$/,
-          exclude: /node_modules/,
-          use: {
-            loader: "babel-loader",
-            options: {
-              presets: ["@babel/preset-env", "@babel/preset-react"]
-            }
-          }
+
+module.exports = {
+  entry: APP_DIR + '/index.jsx',
+  output: {
+    filename: 'bundle.js',
+    path: BUILD_DIR,
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?/,
+        include: APP_DIR,
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'env']
         }
-      ]
-    },
-    mode: "development"
-  };
+      }
+    ]
+  },
+};
 
