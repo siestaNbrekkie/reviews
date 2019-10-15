@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server/index.js",
     "dev-react": "webpack -d --watch",
-    "seed-db": "node ./db/reviewsDb.js"
+    "seed-db": "node ./db/reviewsData.js"
   },
   "repository": {
     "type": "git",

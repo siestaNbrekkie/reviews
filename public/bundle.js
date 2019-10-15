@@ -67,6 +67,14 @@
 	
 	var _ReviewList2 = _interopRequireDefault(_ReviewList);
 	
+	var _Search = __webpack_require__(/*! ./Search.jsx */ 215);
+	
+	var _Search2 = _interopRequireDefault(_Search);
+	
+	var _Ratings = __webpack_require__(/*! ./Ratings.jsx */ 216);
+	
+	var _Ratings2 = _interopRequireDefault(_Ratings);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -100,7 +108,7 @@
 	      var _this2 = this;
 	
 	      _axios2.default.get('/reviews').then(function (response) {
-	        console.log('this is data ', response.data);
+	        console.log('this is data ', response.data[0]);
 	        _this2.setState({
 	          data: response.data
 	        });
@@ -113,9 +121,61 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	          'h1',
-	          { id: 'header' },
-	          'Reviews'
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'h1',
+	            { id: 'header' },
+	            'Reviews'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { id: 'reviewAreaTop' },
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'starAndNumber' },
+	              _react2.default.createElement(
+	                'div',
+	                { id: 'star' },
+	                _react2.default.createElement(
+	                  'span',
+	                  null,
+	                  '\u2605'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { id: 'number' },
+	                '4.76'
+	              )
+	            ),
+	            _react2.default.createElement('div', { id: 'borderBar' }),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'numberOfReviews' },
+	              _react2.default.createElement(
+	                'div',
+	                { id: 'reviewNum' },
+	                '247'
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { id: 'reviewName' },
+	                'reviews'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { id: 'searchReviews' },
+	              _react2.default.createElement(_Search2.default, null)
+	            )
+	          )
+	        ),
+	        _react2.default.createElement('div', { id: 'borderLine' }),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(_Ratings2.default, { scores: this.state.data })
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -24660,8 +24720,8 @@
 	    value: function render() {
 	      var reviews = this.props.reviews;
 	      return _react2.default.createElement(
-	        'div',
-	        null,
+	        'ul',
+	        { id: 'unorderedList' },
 	        reviews.map(function (review) {
 	          return _react2.default.createElement(_ReviewListItem2.default, {
 	            key: review.guestName,
@@ -24684,7 +24744,7 @@
   \***********************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -24714,42 +24774,42 @@
 	  }
 	
 	  _createClass(ReviewListItem, [{
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
 	      var reviewItem = this.props.value;
-	      console.log('this is review item in ReviewListItem ', { reviewItem: reviewItem });
+	      // console.log('this is review item in ReviewListItem ', { reviewItem })
 	      //const item = reviewItem.map()
 	      return _react2.default.createElement(
-	        'div',
-	        null,
+	        "li",
+	        { id: "listItem" },
 	        _react2.default.createElement(
-	          'div',
-	          { id: 'reviewContainer' },
+	          "div",
+	          { id: "reviewContainer" },
 	          _react2.default.createElement(
-	            'div',
-	            { id: 'review' },
+	            "div",
+	            { id: "review" },
 	            _react2.default.createElement(
-	              'div',
-	              { id: 'guestImageCont' },
-	              _react2.default.createElement('img', { id: 'guestImage', src: reviewItem.guestImage }),
+	              "div",
+	              { id: "guestImageCont" },
+	              _react2.default.createElement("img", { id: "guestImage", src: reviewItem.guestImage }),
 	              _react2.default.createElement(
-	                'div',
-	                { id: 'guestDetail' },
+	                "div",
+	                { id: "guestDetail" },
 	                _react2.default.createElement(
-	                  'div',
-	                  { id: 'guestName' },
+	                  "div",
+	                  { id: "guestName" },
 	                  reviewItem.guestName
 	                ),
 	                _react2.default.createElement(
-	                  'div',
-	                  { id: 'guestDate' },
+	                  "div",
+	                  { id: "guestDate" },
 	                  reviewItem.date
 	                )
 	              )
 	            ),
 	            _react2.default.createElement(
-	              'div',
-	              { id: 'guestReview' },
+	              "div",
+	              { id: "guestReview" },
 	              reviewItem.guestReview
 	            )
 	          )
@@ -24762,6 +24822,211 @@
 	}(_react2.default.Component);
 	
 	exports.default = ReviewListItem;
+
+/***/ }),
+/* 215 */
+/*!***************************!*\
+  !*** ./client/Search.jsx ***!
+  \***************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Search = function (_React$Component) {
+	  _inherits(Search, _React$Component);
+	
+	  function Search(props) {
+	    _classCallCheck(this, Search);
+	
+	    return _possibleConstructorReturn(this, (Search.__proto__ || Object.getPrototypeOf(Search)).call(this, props));
+	  }
+	
+	  _createClass(Search, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "div",
+	        null,
+	        _react2.default.createElement(
+	          "form",
+	          { id: "searchBox" },
+	          _react2.default.createElement("input", { type: "text" })
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Search;
+	}(_react2.default.Component);
+	
+	exports.default = Search;
+
+/***/ }),
+/* 216 */
+/*!****************************!*\
+  !*** ./client/Ratings.jsx ***!
+  \****************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Ratings = function (_React$Component) {
+	  _inherits(Ratings, _React$Component);
+	
+	  function Ratings(props) {
+	    _classCallCheck(this, Ratings);
+	
+	    return _possibleConstructorReturn(this, (Ratings.__proto__ || Object.getPrototypeOf(Ratings)).call(this, props));
+	  }
+	
+	  _createClass(Ratings, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "div",
+	        { id: "ratings" },
+	        _react2.default.createElement(
+	          "div",
+	          { id: "ratingsLeft" },
+	          _react2.default.createElement(
+	            "div",
+	            { id: "checkIn" },
+	            "Check-in",
+	            _react2.default.createElement(
+	              "div",
+	              { id: "pbCheckin" },
+	              _react2.default.createElement("progress", { max: "5", value: "4.5" }),
+	              _react2.default.createElement(
+	                "div",
+	                { id: "pbNum" },
+	                "4.5"
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "div",
+	            { id: "accuracy" },
+	            "Accuracy",
+	            _react2.default.createElement(
+	              "div",
+	              { id: "pbAccuracy" },
+	              _react2.default.createElement("progress", { max: "5", value: "4.5" }),
+	              _react2.default.createElement(
+	                "div",
+	                { id: "pbNum" },
+	                "4.5"
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "div",
+	            { id: "cleanliness" },
+	            "Cleanliness",
+	            _react2.default.createElement(
+	              "div",
+	              { id: "pbCleanliness" },
+	              _react2.default.createElement("progress", { max: "5", value: "4.5" }),
+	              _react2.default.createElement(
+	                "div",
+	                { id: "pbNum" },
+	                "4.5"
+	              )
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { id: "ratingsRight" },
+	          _react2.default.createElement(
+	            "div",
+	            { id: "communication" },
+	            "Communication",
+	            _react2.default.createElement(
+	              "div",
+	              { id: "pbCommunication" },
+	              _react2.default.createElement("progress", { max: "5", value: "4.5" }),
+	              _react2.default.createElement(
+	                "div",
+	                { id: "pbNum" },
+	                "4.5"
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "div",
+	            { id: "location" },
+	            "Location",
+	            _react2.default.createElement(
+	              "div",
+	              { id: "pbLocation" },
+	              _react2.default.createElement("progress", { max: "5", value: "4.5" }),
+	              _react2.default.createElement(
+	                "div",
+	                { id: "pbNum" },
+	                "4.5"
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "div",
+	            { id: "value" },
+	            "Value",
+	            _react2.default.createElement(
+	              "div",
+	              { id: "pbValue" },
+	              _react2.default.createElement("progress", { max: "5", value: "4.5" }),
+	              _react2.default.createElement(
+	                "div",
+	                { id: "pbNum" },
+	                "4.5"
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Ratings;
+	}(_react2.default.Component);
+	
+	exports.default = Ratings;
 
 /***/ })
 /******/ ]);

@@ -8,14 +8,14 @@ class ReviewList extends React.Component {
   render() {
     const reviews = this.props.reviews;
     return(
-      <div>
+      <ul id="unorderedList">
         {reviews.map((review) =>
           <ReviewListItem
           key={review.guestName}
           value={review}
           />
         )}
-      </div>
+      </ul>
     )
   }
 }
