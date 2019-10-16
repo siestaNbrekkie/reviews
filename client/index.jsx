@@ -4,6 +4,7 @@ import Axios from 'axios';
 import ReviewList from './ReviewList.jsx';
 import Search from './Search.jsx';
 import Ratings from './Ratings.jsx';
+import styles from './styles/indexStyle.css';
 
 
 
@@ -20,7 +21,7 @@ class App extends React.Component {
   };
 
   getData() {
-    Axios.get('/reviews')
+    Axios.get('/reviews/:id')
       .then(response => {
         console.log('this is data ', response.data[0])
         this.setState({
@@ -34,32 +35,32 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          <h1 id="header">Reviews</h1>
-          <div id="reviewAreaTop">
-            <div id="starAndNumber">
-              <div id="star">
+          <h1 className={styles.header}>Reviews</h1>
+          <div className={styles.reviewAreaTop}>
+            <div className={styles.starAndNumber}>
+              <div className={styles.star}>
               <span>&#9733;</span>
               </div>
-              <div id="number">
+              <div className={styles.number}>
                 4.76
               </div>
             </div>
-            <div id="borderBar">
+            <div className={styles.borderBar}>
             </div>
-            <div id="numberOfReviews">
-              <div id="reviewNum">
+            <div className={styles.numberOfReviews}>
+              <div className={styles.reviewNum}>
                 247
               </div>
-              <div id="reviewName">
+              <div className={styles.reviewName}>
                 reviews
               </div>
             </div>
-            <div id="searchReviews">
+            <div className={styles.searchReviews}>
               <Search />
             </div>
           </div>
         </div>
-        <div id="borderLine">
+        <div className={styles.borderLine}>
         </div>
         <div>
           <Ratings scores={this.state.data} />

@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './styles/searchStyle.css';
 
 
 class Search extends React.Component {
@@ -8,7 +9,7 @@ class Search extends React.Component {
   render() {
     return(
       <div>
-        <form id="searchBox" >
+        <form className={styles.searchBox} >
           <input type="text"/>
         </form>
       </div>

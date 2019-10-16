@@ -1,5 +1,6 @@
 
 import React from 'react';
+import styles from './styles/ratingsStyle.css';
 
 
 class Ratings extends React.Component {
@@ -8,60 +9,60 @@ class Ratings extends React.Component {
   }
   render() {
     return (
-      <div id="ratings">
-        <div id="ratingsLeft">
-          <div id="checkIn">
+      <div className={styles.ratings}>
+        <div className={styles.ratingsLeft}>
+          <div className={styles.checkIn}>
             Check-in
-            <div id="pbCheckin">
+            <div className={styles.pbCheckin}>
               <progress max="5" value="4.5"></progress>
-                <div id="pbNum">
+                <div className={styles.pbNum}>
                   4.5
                 </div>
             </div>
           </div>
-          <div id="accuracy">
+          <div className={styles.accuracy}>
             Accuracy
-            <div id="pbAccuracy">
+            <div className={styles.pbAccuracy}>
               <progress max="5" value="4.5"></progress>
-              <div id="pbNum">
+              <div className={styles.pbNum}>
                 4.5
               </div>
             </div>
           </div>
-          <div id="cleanliness">
+          <div className={styles.cleanliness}>
             Cleanliness
-            <div id="pbCleanliness">
+            <div className={styles.pbCleanliness}>
               <progress max="5" value="4.5"></progress>
-              <div id="pbNum">
+              <div className={styles.pbNum}>
                 4.5
               </div>
             </div>
           </div>
         </div>
-        <div id="ratingsRight">
-          <div id="communication">
+        <div className={styles.ratingsRight}>
+          <div className={styles.communication}>
             Communication
-            <div id="pbCommunication">
+            <div className={styles.pbCommunication}>
               <progress max="5" value="4.5"></progress>
-              <div id="pbNum">
+              <div className={styles.pbNum}>
                 4.5
               </div>
             </div>
           </div>
-          <div id="location">
+          <div className={styles.location}>
             Location
-            <div id="pbLocation">
+            <div className={styles.pbLocation}>
               <progress max="5" value="4.5"></progress>
-              <div id="pbNum">
+              <div className={styles.pbNum}>
                 4.5
               </div>
             </div>
           </div>
-          <div id="value">
+          <div className={styles.value}>
             Value
-            <div id="pbValue">
+            <div className={styles.pbValue}>
               <progress max="5" value="4.5"></progress>
-              <div id="pbNum">
+              <div className={styles.pbNum}>
                 4.5
               </div>
             </div>

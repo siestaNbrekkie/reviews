@@ -1,0 +1,57 @@
+.listItem {
+  list-style-type: none;
+  margin: 0px;
+  display: flex;
+  border-bottom: 2px #484848;
+}
+
+.reviewContainer {
+  padding-left: 0px;
+  border-bottom: 1px solid #e4e3e3;
+}
+
+.review {
+  padding-left: 0px;
+  font-size: 14px;
+  padding-bottom: 25px;
+  padding-top: 25px;
+}
+
+.guestImageCont{
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.guestImage {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.guestDetail {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.guestName {
+  font-size: 16px;
+  font-weight: 440;
+  line-height: 22px;
+  color: #484848;
+  padding-bottom: 4px;
+}
+
+.guestDate {
+  font-size: 14px;
+  font-weight: 250;
+  line-height: 14px;
+  color: #484848;
+}
+
+.guestReview {
+  color: #484848;
+  font-size: 16px;
+  font-weight: 250;
+}

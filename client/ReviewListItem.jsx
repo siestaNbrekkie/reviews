@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './styles/reviewListItem.css';
 
 class ReviewListItem extends React.Component {
   constructor(props) {
@@ -9,21 +10,22 @@ class ReviewListItem extends React.Component {
     // console.log('this is review item in ReviewListItem ', { reviewItem })
     //const item = reviewItem.map()
     return (
-      <li id="listItem">
-        <div id="reviewContainer">
-          <div id="review">
-            <div id="guestImageCont">
-              <img id="guestImage" src={reviewItem.guestImage} />
-              <div id="guestDetail">
-                <div id="guestName">
+      <li className={styles.listItem}>
+      {/* className="styles.listItem" */}
+        <div className={styles.reviewContainer}>
+          <div className={styles.review}>
+            <div className={styles.guestImageCont}>
+              <img className={styles.guestImage} src={reviewItem.guestImage} />
+              <div className={styles.guestDetail}>
+                <div className={styles.guestName}>
                   {reviewItem.guestName}
                 </div>
-                <div id='guestDate'>
+                <div className={styles.guestDate}>
                   {reviewItem.date}
                 </div>
               </div>
             </div>
-            <div id='guestReview'>
+            <div className={styles.guestReview}>
               {reviewItem.guestReview}
             </div>
           </div>

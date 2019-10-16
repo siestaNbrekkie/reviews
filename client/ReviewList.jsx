@@ -1,5 +1,6 @@
 import React from 'react';
 import ReviewListItem from './ReviewListItem.jsx';
+import styles from './styles/reviewListStyle.css'
 
 class ReviewList extends React.Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class ReviewList extends React.Component {
   render() {
     const reviews = this.props.reviews;
     return(
-      <ul id="unorderedList">
+      <ul className={styles.unorderedList}>
         {reviews.map((review) =>
           <ReviewListItem
           key={review.guestName}

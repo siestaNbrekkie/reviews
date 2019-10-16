@@ -42,7 +42,14 @@ for (var i = 1; i <= 10; i++) {
   }
 }
 
-Review.insertMany(data);
+async function asyncCall(){
+  await Review.insertMany(data);
+  mongoose.disconnect();
+}
+
+asyncCall();
+
+
 
 // };
 
