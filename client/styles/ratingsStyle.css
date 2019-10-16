@@ -6,6 +6,7 @@
   padding-top: 16px;
   /* padding-bottom: 10px; */
   justify-content: space-between;
+  max-width: 594px;
 }
 
 .ratingsLeft {
@@ -13,7 +14,7 @@
   order: 1;
   flex-direction: column;
   justify-content: space-around;
-  min-width: 300px;
+  min-width: 297px;
 }
 
 .checkIn {
@@ -59,7 +60,7 @@
   order: 2;
   flex-direction: column;
   justify-content: space-around;
-  min-width: 300px;
+  min-width: 297px;
 }
 
 .communication{
@@ -93,4 +94,12 @@
 .pbValue{
   display: flex;
   flex-direction: row;
+}
+
+progress[value]{
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #008489;
+  width: 92px;
+  height: 4px;
 }

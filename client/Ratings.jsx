@@ -23,7 +23,7 @@ class Ratings extends React.Component {
           <div className={styles.accuracy}>
             Accuracy
             <div className={styles.pbAccuracy}>
-              <progress max="5" value="4.5"></progress>
+              <progress max="5.0" value="4.5"></progress>
               <div className={styles.pbNum}>
                 4.5
               </div>

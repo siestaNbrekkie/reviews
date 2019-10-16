@@ -21,9 +21,12 @@ class App extends React.Component {
   };
 
   getData() {
-    Axios.get('/reviews/:id')
+    var parts = document.URL.split("/");
+    var lastSegment = parts.pop() || parts.pop();
+
+    Axios.get(`http://localhost:3000/${lastSegment}`)
       .then(response => {
-        console.log('this is data ', response.data[0])
+        console.log('this is data ', response.data)
         this.setState({
           data: response.data
         })
@@ -33,7 +36,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.body}>
         <div>
           <h1 className={styles.header}>Reviews</h1>
           <div className={styles.reviewAreaTop}>

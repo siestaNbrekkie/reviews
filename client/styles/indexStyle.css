@@ -1,13 +1,23 @@
+.body{
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+  /* font-family: 'Nunito Sans', sans-serif; */
+  color: #484848;
+  /* max-width: 594px; */
+  max-width: 594px;
+}
+
 .header {
   font-size: 24px;
   font-weight: 600;
   font-style: normal;
   padding-bottom: 6px;
+  max-width: 594px;
 }
 
 .reviewAreaTop {
   display: flex;
   flex-direction: row;
+  max-width: 594px;
 }
 
 .starAndNumber {
@@ -34,7 +44,8 @@
   order: 2;
   border-right: 1px solid #b4b4b4;
   padding-left: 15px;
-  height: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .numberOfReviews {
@@ -59,7 +70,7 @@
   order: 4;
   /* display: flex; */
   align-self: flex-end;
-  padding-left: 233px;
+  padding-left: 309px;
 }
 
 .borderLine {
