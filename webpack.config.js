@@ -1,27 +1,40 @@
-var path = require('path');
-
-
-var APP_DIR = path.resolve(__dirname, 'client')
-var BUILD_DIR = path.resolve(__dirname, './public')
-
+const path = require('path');
 
 module.exports = {
-  entry: APP_DIR + '/index.jsx',
+  entry: path.resolve(__dirname, 'client', 'index.jsx'),
   output: {
-    filename: 'bundle.js',
-    path: BUILD_DIR,
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'public'),
+  },
+  resolve: {
+    extensions: ['.jsx', '.js', '.json', '.css']
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.jsx?/,
-        include: APP_DIR,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'env']
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ["@babel/preset-env", "@babel/preset-react"]
+          }
         }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: true
+            }
+          }
+        ]
       }
     ]
   },
+  mode: "development"
 };
-

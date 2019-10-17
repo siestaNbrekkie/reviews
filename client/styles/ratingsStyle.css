@@ -1,0 +1,105 @@
+.ratings {
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  font-weight: 300;
+  padding-top: 16px;
+  /* padding-bottom: 10px; */
+  justify-content: space-between;
+  max-width: 594px;
+}
+
+.ratingsLeft {
+  display: flex;
+  order: 1;
+  flex-direction: column;
+  justify-content: space-around;
+  min-width: 297px;
+}
+
+.checkIn {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+}
+
+.pbCheckin{
+  display: flex;
+  flex-direction: row;
+  padding-left: 81px;
+}
+
+.pbNum {
+  padding-left: 8px;
+}
+
+.accuracy {
+  display: flex;
+  flex-direction: row;
+}
+
+.pbAccuracy {
+  display: flex;
+  flex-direction: row;
+  padding-left: 79px;
+}
+
+.cleanliness{
+  display: flex;
+  flex-direction: row;
+}
+
+.pbCleanliness{
+  display: flex;
+  flex-direction: row;
+  padding-left: 66px;
+}
+
+.ratingsRight {
+  display: flex;
+  order: 2;
+  flex-direction: column;
+  justify-content: space-around;
+  min-width: 297px;
+}
+
+.communication{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between
+}
+
+.pbCommunication{
+  display: flex;
+  flex-direction: row;
+}
+
+.location{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between
+}
+
+.pbLocation{
+  display: flex;
+  flex-direction: row;
+}
+
+.value{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between
+}
+
+.pbValue{
+  display: flex;
+  flex-direction: row;
+}
+
+progress[value]{
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #008489;
+  width: 92px;
+  height: 4px;
+}
