@@ -3,3 +3,8 @@
   margin: 0px;
   padding-left: 0px;
 }
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+}

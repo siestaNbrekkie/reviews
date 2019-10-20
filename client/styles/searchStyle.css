@@ -7,16 +7,23 @@ input {
   width: 188px;
   height: 32px;
   border: 1px solid #eae8e8;
+  padding-left: 25px;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+  font-size: 14px;
 }
 
 ::placeholder {
-  color: #484848;
+  color: #6e6e6e;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 }
 
 input:focus {
   border: 1px solid #008489;
   outline: none;
+}
+
+.mag {
+  color: #969696;
 }
