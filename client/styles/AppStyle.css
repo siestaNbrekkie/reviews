@@ -4,14 +4,15 @@
   color: #484848;
   /* max-width: 594px; */
   max-width: 594px;
+  letter-spacing: .1px;
 }
 
 .header {
   font-size: 24px;
   font-weight: 600;
   font-style: normal;
-  padding-bottom: 6px;
   max-width: 594px;
+  margin-bottom: 4px;
 }
 
 .reviewAreaTop {
@@ -24,7 +25,7 @@
   display: flex;
   flex-direction: row;
   order: 1;
-  padding-top: 2px;
+  padding-top: 19px;
 }
 
 .star {
@@ -42,10 +43,10 @@
 
 .borderBar {
   order: 2;
-  border-right: 1px solid #b4b4b4;
+  border-right: 1px solid #eae8e8;
   padding-left: 15px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 20px;
+  padding-top: 19px;
 }
 
 .numberOfReviews {
@@ -53,7 +54,7 @@
   display: flex;
   flex-direction: row;
   font-size: 18px;
-  padding-top: 2px;
+  padding-top: 19px;
 }
 
 .reviewNum {
@@ -63,17 +64,18 @@
 
 .reviewName {
   padding-left: 5px;
-  font-weight: 240;
+  font-weight: 250;
+  letter-spacing: .9px;
 }
 
 .searchReviews {
   order: 4;
   /* display: flex; */
   align-self: flex-end;
-  padding-left: 309px;
+  padding-left: 250px;
 }
 
 .borderLine {
   border-bottom: 1px solid #e4e3e3;
-  padding-top: 10px;
+  padding-top: 19px;
 }

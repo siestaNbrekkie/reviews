@@ -16,13 +16,15 @@ var endDate = new Date(2019, 10, 10);
 
 // var populator = function () {
 
-for (var i = 1; i <= 10; i++) {
+for (var i = 1; i <= 100; i++) {
   var start = 1;
-  while (start <= 10) {
+  var reviewNumber = 1;
+  while (start <= 100) {
     var each = {
       houseId: i,
-      guestName: faker.name.findName(),
-      date: DateGenerator.getRandomDateInRange(startDate, endDate), // will need to change this to to show just the month and year (faker has a random month generator @ faker.date.month)
+      reviewNum: reviewNumber,
+      guestName: faker.name.firstName(),
+      date: DateGenerator.getRandomDateInRange(startDate, endDate), // need to fix this, getting dates that are in the future and I do not want that
       guestReview: faker.lorem.paragraph(),
       guestImage: faker.image.avatar(),
       hostName: faker.name.findName(),
@@ -38,6 +40,7 @@ for (var i = 1; i <= 10; i++) {
       }
     }
     data.push(each);
+    reviewNumber ++;
     start += 1;
   }
 }

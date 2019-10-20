@@ -8,15 +8,26 @@ class ReviewList extends React.Component {
   }
   render() {
     const reviews = this.props.reviews;
-    return(
-      <ul className={styles.unorderedList}>
-        {reviews.map((review) =>
-          <ReviewListItem
-          key={review.guestName}
-          value={review}
-          />
-        )}
-      </ul>
+    return (
+      <div>
+        <ul className={styles.unorderedList}>
+          {reviews.map((review) =>
+            <ReviewListItem
+              key={review.guestName}
+              value={review}
+            />
+          )}
+        </ul>
+        <div className={styles.ButtonContainer}>
+          <div className={styles.previous}>
+            <button onClick={this.props.clickPrevious}> Previous Page</button>
+          </div>
+          <div className={styles.next}>
+            <button onClick={this.props.clickNext}>Next Page
+        </button>
+          </div>
+        </div>
+      </div>
     )
   }
 }

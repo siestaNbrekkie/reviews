@@ -10,7 +10,7 @@ class Search extends React.Component {
     return(
       <div>
         <form className={styles.searchBox} >
-          <input type="text"/>
+          <input type="text" placeholder="Search reviews"/>
         </form>
       </div>
     )
