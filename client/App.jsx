@@ -69,35 +69,35 @@ class App extends React.Component {
     let lastReviewNum = lastReview.reviewNum;
     let start;
     let result = [];
-    if (list.length === 7) {
-    for (var i = 0; i < this.state.data.length; i++) {
-      var temp = this.state.data[i];
-      if (temp.reviewNum === lastReviewNum) {
-        if ((i + 7) < (this.state.data.length - 1)) {
-          start = i + 1;
-          let end = start + 7;
+    if (list.length === 7) { // prevents nextPageClick from rendering a blank page if at the end of total list of reviews
+      for (var i = 0; i < this.state.data.length; i++) {
+        var temp = this.state.data[i];
+        if (temp.reviewNum === lastReviewNum) {
+          if ((i + 7) < (this.state.data.length - 1)) {
+            start = i + 1;
+            let end = start + 7;
 
-          while (start < end) {
-            result.push(this.state.data[start])
-            start++;
-          };
+            while (start < end) {
+              result.push(this.state.data[start])
+              start++;
+            };
 
-          this.setState({
-            pageReviews: result
-          })
-          break;
-        } else {
-          for (var j = i + 1; j < this.state.data.length; j++ ){
-            result.push(this.state.data[j])
+            this.setState({
+              pageReviews: result
+            })
+            break;
+          } else {
+            for (var j = i + 1; j < this.state.data.length; j++) {
+              result.push(this.state.data[j])
+            }
+            this.setState({
+              pageReviews: result
+            })
+            break;
           }
-          this.setState({
-            pageReviews: result
-          })
-          break;
         }
-      }
-    };
-  }
+      };
+    }
 
 
 
@@ -126,7 +126,7 @@ class App extends React.Component {
 
       while (start > end) {
         result.unshift(this.state.data[start]);
-        start --;
+        start--;
       };
 
       this.setState({
@@ -142,20 +142,20 @@ class App extends React.Component {
     })
   };
 
-  handleSubmit (event) {
+  handleSubmit(event) {
     let result = [];
     let word = this.state.search;
 
-    for (var i = 0; i < this.state.data.length; i ++) {
+    for (var i = 0; i < this.state.data.length; i++) {
       var temp = this.state.data[i];
-      if (temp.guestReview.includes(word)){
+      if (temp.guestReview.includes(word)) {
         result.push(temp);
       }
     }
 
     console.log('this is data after search ', result)
 
-    if (result.length > 7){
+    if (result.length > 7) {
       this.setState({
         data: result,
         pageReviews: result.slice(0, 7),
@@ -211,17 +211,17 @@ class App extends React.Component {
                 </div>
               </div>
               <div className={styles.searchReviews}>
-                <Search handleSubmit={this.handleSubmit}  handleChange={this.handleChange}/>
+                <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange} />
               </div>
             </div>
           </div>
           <div className={styles.borderLine}>
           </div>
           <div>
-            <Ratings scores={this.state.data} searchActive={this.state.searchActive} wordSearched={this.state.search} backButton={this.backToAllReviews}/>
+            <Ratings scores={this.state.data} searchActive={this.state.searchActive} wordSearched={this.state.search} backButton={this.backToAllReviews} />
           </div>
           <div>
-            <ReviewList reviews={this.state.pageReviews} clickNext={this.nextPageClick} clickPrevious={this.previousPageClick}/>
+            <ReviewList reviews={this.state.pageReviews} clickNext={this.nextPageClick} clickPrevious={this.previousPageClick} />
           </div>
         </div>
       )

@@ -7,4 +7,23 @@
 .buttonContainer {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.chevronHolder {
+  border-radius: 50%;
+  color: #008489;
+  background-color: transparent;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: none;
+  cursor: pointer;
+  border-radius: 50%;
+  color: #008489;
 }
