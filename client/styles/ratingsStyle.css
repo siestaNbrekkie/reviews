@@ -127,6 +127,37 @@ progress[value]::-webkit-progress-value {
   border-radius: 2px;
 }
 
+.mentionedWord {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.numberOfGuests {
+  order: 1;
+  font-weight: 200;
+}
+
+.wordSearched {
+  order: 2;
+  font-weight: 400;
+  padding-left: 3px;
+}
+
+.backButton {
+  order: 3;
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 200px;
+}
+
+.button {
+  color: #008489;
+  border: none;
+  padding-right: 0px;
+  font-size: 14px;
+  font-weight: 200;
+}
 
 
 

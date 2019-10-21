@@ -1,5 +1,6 @@
 .searchBox {
   border-radius: 5px;
+  display: table;
 }
 
 input {
@@ -26,4 +27,7 @@ input:focus {
 
 .mag {
   color: #969696;
+  position: absolute;
+  padding-top: 10px;
+  padding-left: 7px;
 }

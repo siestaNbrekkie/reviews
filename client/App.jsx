@@ -14,12 +14,15 @@ class App extends React.Component {
     this.previousPageClick = this.previousPageClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.backToAllReviews = this.backToAllReviews.bind(this);
 
     this.state = {
       data: [],
+      copyData: [],
       count: 0,
       pageReviews: [],
-      search: ''
+      search: '',
+      searchActive: false
     };
   }
 
@@ -36,6 +39,7 @@ class App extends React.Component {
         console.log('this is data ', response.data)
         this.setState({
           data: response.data,
+          copyData: response.data,
           count: response.data.length,
           pageReviews: response.data.slice(0, 7)
         })
@@ -65,6 +69,7 @@ class App extends React.Component {
     let lastReviewNum = lastReview.reviewNum;
     let start;
     let result = [];
+    if (list.length === 7) {
     for (var i = 0; i < this.state.data.length; i++) {
       var temp = this.state.data[i];
       if (temp.reviewNum === lastReviewNum) {
@@ -92,6 +97,7 @@ class App extends React.Component {
         }
       }
     };
+  }
 
 
 
@@ -152,16 +158,29 @@ class App extends React.Component {
     if (result.length > 7){
       this.setState({
         data: result,
-        pageReviews: result.slice(0, 7)
+        pageReviews: result.slice(0, 7),
+        searchActive: true
       })
     } else {
       this.setState({
         data: result,
-        pageReviews: result
+        pageReviews: result,
+        searchActive: true
       })
     }
 
     event.preventDefault();
+  };
+
+  backToAllReviews() {
+    let originalData = this.state.copyData;
+
+    this.setState({
+      data: originalData,
+      searchActive: false,
+      pageReviews: originalData.slice(0, 7)
+    })
+
   }
 
   render() {
@@ -199,7 +218,7 @@ class App extends React.Component {
           <div className={styles.borderLine}>
           </div>
           <div>
-            <Ratings scores={this.state.data} />
+            <Ratings scores={this.state.data} searchActive={this.state.searchActive} wordSearched={this.state.search} backButton={this.backToAllReviews}/>
           </div>
           <div>
             <ReviewList reviews={this.state.pageReviews} clickNext={this.nextPageClick} clickPrevious={this.previousPageClick}/>
