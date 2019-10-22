@@ -6,7 +6,7 @@ import Search from './Search.jsx';
 import Ratings from './Ratings.jsx';
 import styles from './styles/AppStyle.css';
 
-class App extends React.Component {
+class Reviews extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,7 +34,7 @@ class App extends React.Component {
     var parts = document.URL.split("/");
     var lastSegment = parts.pop() || parts.pop();
 
-    Axios.get(`http://localhost:3000/${lastSegment}`)
+    Axios.get(`http://localhost:3003/${lastSegment}`)
       .then(response => {
         console.log('this is data ', response.data)
         this.setState({
@@ -232,4 +232,4 @@ class App extends React.Component {
 
 // ReactDOM.render(<App />, document.getElementById('app'));
 
-export default App;
+export default Reviews;

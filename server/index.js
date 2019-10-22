@@ -5,11 +5,11 @@ const Review = require('../db/reviewsDb.js')
 
 const app = express();
 
-const PORT = 3000;
+const PORT = 3003;
 
 app.use('/rooms/:id', express.static(path.join(__dirname, '../public'))); //rooms/:id
 
-app.get('/:id', (req, res) => { // need to make app.get('/:id)
+app.get('/:id', (req, res) => {
   //console.log('this should be the numebr 1 ', req.params.id)
   //req.params.id
     Review.find({ houseId: req.params.id }).sort({ date: -1 })
