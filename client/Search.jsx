@@ -9,7 +9,7 @@ class Search extends React.Component {
     super(props);
   }
   render() {
-    return(
+    return (
       <div>
         <form className={styles.searchBox} onSubmit={this.props.handleSubmit} >
           <FontAwesomeIcon icon={faSearch} size="sm" className={styles.mag}/>

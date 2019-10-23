@@ -95,19 +95,35 @@ class Ratings extends React.Component {
       )
     } else { // if search is active make ratings disappear and show how many guests have mentioned the word that was put into search and show a button to bring back to all reviews
       let currentData = this.props.scores;
-      return (
-        <div className={styles.mentionedWord}>
-          <div className={styles.numberOfGuests}>
-            {`${currentData.length} guests have mentioned`}
+      if (currentData.length === 0) { // if the search results yield no matches render this
+        return (
+          <div className={styles.mentionedWord}>
+            <div className={styles.numberOfGuests}>
+              {`${currentData.length} guests have mentioned`}
+            </div>
+            <div className={styles.wordSearched}>
+                {`"${this.props.wordSearched}"`}
+            </div>
+            <div className={styles.backButton}>
+              <button className={styles.button} onClick={this.props.backButton}> Back to all reviews</button>
+            </div>
           </div>
-          <div className={styles.wordSearched}>
-              {`"${this.props.wordSearched}"`}
+        )
+      } else {
+        return (
+          <div className={styles.mentionedWord}>
+            <div className={styles.numberOfGuests}>
+              {`${currentData.length} guests have mentioned`}
+            </div>
+            <div className={styles.wordSearched}>
+                {`"${this.props.wordSearched}"`}
+            </div>
+            <div className={styles.backButton}>
+              <button className={styles.button} onClick={this.props.backButton}> Back to all reviews</button>
+            </div>
           </div>
-          <div className={styles.backButton}>
-            <button className={styles.button} onClick={this.props.backButton}> Back to all reviews</button>
-          </div>
-        </div>
-      )
+        )
+      }
     }
   }
 }
