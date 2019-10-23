@@ -1,3 +1,33 @@
 .searchBox {
   border-radius: 5px;
+  display: table;
+}
+
+input {
+  border-radius: 5px;
+  width: 188px;
+  height: 32px;
+  border: 1px solid #eae8e8;
+  padding-left: 25px;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+  font-size: 14px;
+}
+
+::placeholder {
+  color: #6e6e6e;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+}
+
+input:focus {
+  border: 1px solid #008489;
+  outline: none;
+}
+
+.mag {
+  color: #969696;
+  position: absolute;
+  padding-top: 10px;
+  padding-left: 7px;
 }

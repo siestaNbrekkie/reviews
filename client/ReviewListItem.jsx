@@ -1,4 +1,5 @@
 import React from 'react';
+const moment = require('moment');
 import styles from './styles/reviewListItem.css';
 
 class ReviewListItem extends React.Component {
@@ -21,7 +22,7 @@ class ReviewListItem extends React.Component {
                   {reviewItem.guestName}
                 </div>
                 <div className={styles.guestDate}>
-                  {reviewItem.date}
+                  {moment(reviewItem.date).format("MMMM YYYY")}
                 </div>
               </div>
             </div>

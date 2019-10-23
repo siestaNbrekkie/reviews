@@ -3,3 +3,31 @@
   margin: 0px;
   padding-left: 0px;
 }
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 30px;
+}
+
+.chevronHolder {
+  border: 1px solid #008489;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: none;
+  cursor: pointer;
+  border-radius: 50%;
+  color: #008489;
+  align-content: center;
+  margin: 4px;
+}

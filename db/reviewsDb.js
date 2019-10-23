@@ -12,9 +12,10 @@ db.once('open', function () {
 
 var reviewSchema = new mongoose.Schema({
   houseId: Number,
+  reviewNum: Number,
   guestName: String,
   date: Date,
-  guestReview: String,
+  guestReview: {type: String, text: true},
   guestImage: String,
   hostName: String,
   hostResponse: String,

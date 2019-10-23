@@ -1,0 +1,81 @@
+.body{
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+  /* font-family: 'Nunito Sans', sans-serif; */
+  color: #484848;
+  /* max-width: 594px; */
+  max-width: 594px;
+  letter-spacing: .1px;
+}
+
+.header {
+  font-size: 24px;
+  font-weight: 600;
+  font-style: normal;
+  max-width: 594px;
+  margin-bottom: 4px;
+}
+
+.reviewAreaTop {
+  display: flex;
+  flex-direction: row;
+  max-width: 594px;
+}
+
+.starAndNumber {
+  display: flex;
+  flex-direction: row;
+  order: 1;
+  padding-top: 19px;
+}
+
+.star {
+  color: #008489;
+  fill: #008489;
+  font-size: 13.6px;
+  padding-top: 2px;
+}
+
+.number {
+  font-size: 18px;
+  font-weight: 640;
+  padding-left: 3px;
+}
+
+.borderBar {
+  order: 2;
+  border-right: 1px solid #eae8e8;
+  padding-left: 15px;
+  margin-top: 20px;
+  padding-top: 19px;
+}
+
+.numberOfReviews {
+  order: 3;
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  padding-top: 19px;
+}
+
+.reviewNum {
+  font-weight: 640;
+  padding-left: 12px;
+}
+
+.reviewName {
+  padding-left: 5px;
+  font-weight: 250;
+  letter-spacing: .9px;
+}
+
+.searchReviews {
+  order: 4;
+  /* display: flex; */
+  align-self: flex-end;
+  padding-left: 198px;
+}
+
+.borderLine {
+  border-bottom: 1px solid #e4e3e3;
+  padding-top: 19px;
+}

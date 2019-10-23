@@ -3,7 +3,7 @@
   flex-direction: row;
   font-size: 16px;
   font-weight: 300;
-  padding-top: 16px;
+  padding-top: 17px;
   /* padding-bottom: 10px; */
   justify-content: space-between;
   max-width: 594px;
@@ -15,11 +15,13 @@
   flex-direction: column;
   justify-content: space-around;
   min-width: 297px;
+  letter-spacing: 0.6px;
 }
 
 .checkIn {
   display: flex;
   flex-direction: row;
+  padding-bottom: 16px;
   /* justify-content: space-between; */
 }
 
@@ -31,11 +33,13 @@
 
 .pbNum {
   padding-left: 8px;
+  font-weight: 500;
 }
 
 .accuracy {
   display: flex;
   flex-direction: row;
+  padding-bottom: 16px;
 }
 
 .pbAccuracy {
@@ -59,14 +63,20 @@
   display: flex;
   order: 2;
   flex-direction: column;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   min-width: 297px;
+  letter-spacing: 0.6px;
 }
 
 .communication{
   display: flex;
   flex-direction: row;
-  justify-content: space-between
+  justify-content: space-between;
+  padding-bottom: 16px;
+}
+
+.descriptionR{
+  margin-left: 33px;
 }
 
 .pbCommunication{
@@ -77,7 +87,8 @@
 .location{
   display: flex;
   flex-direction: row;
-  justify-content: space-between
+  justify-content: space-between;
+  padding-bottom: 16px;
 }
 
 .pbLocation{
@@ -96,10 +107,66 @@
   flex-direction: row;
 }
 
-progress[value]{
+progress[value] {
+  /* Reset the default appearance */
   -webkit-appearance: none;
-  appearance: none;
-  background-color: #008489;
+   appearance: none;
+  margin-top: 7px;
   width: 92px;
   height: 4px;
 }
+
+progress[value]::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value {
+  background-color: #008489;
+  border-radius: 2px;
+}
+
+.mentionedWord {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.numberOfGuests {
+  order: 1;
+  font-weight: 200;
+}
+
+.wordSearched {
+  order: 2;
+  font-weight: 400;
+  padding-left: 3px;
+}
+
+.backButton {
+  order: 3;
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 200px;
+}
+
+.button {
+  color: #008489;
+  border: none;
+  padding-right: 0px;
+  font-size: 14px;
+  font-weight: 200;
+}
+
+
+
+
+/* progress[value]{
+  -webkit-appearance: none;
+  appearance: none;
+  background: #008489;
+  width: 92px;
+  height: 4px;
+  margin-top: 7px;
+} */
