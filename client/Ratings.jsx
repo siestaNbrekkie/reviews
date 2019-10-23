@@ -9,12 +9,16 @@ class Ratings extends React.Component {
   }
 
   getAverage(array, key) {
-    let total = 0;
-    const arrLength = array.length
-    array.map(obj => {
-      total += obj.ratings[key]
-    })
-    return total/arrLength;
+    if (array.length !== 0) {
+      let total = 0;
+      const arrLength = array.length
+      array.map(obj => {
+        total += obj.ratings[key]
+      })
+      return total/arrLength;
+    } else {
+      return 0;
+    }
   }
 
   render() {

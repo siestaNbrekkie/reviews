@@ -53,16 +53,20 @@ class Reviews extends React.Component {
   };
 
   allAverage(array) {
-    let count = 0;
-    let divide = array.length * 6;
-
-    array.map(obj => {
-      for (var key in obj.ratings) {
-        count += obj.ratings[key];
-      }
-    })
-
-    return count / divide;
+    if (array.length !== 0) {
+      let count = 0;
+      let divide = array.length * 6;
+  
+      array.map(obj => {
+        for (var key in obj.ratings) {
+          count += obj.ratings[key];
+        }
+      })
+  
+      return count / divide;
+    } else {
+      return 0;
+    }
   };
 
   nextPageClick() {
