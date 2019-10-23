@@ -46,6 +46,9 @@ class Reviews extends React.Component {
       })
       .catch(err => { // did not handle possible errors before
         console.error("error in setting state")
+      })
+      .finally(() => {
+
       });
   };
 
@@ -67,36 +70,41 @@ class Reviews extends React.Component {
     let length = list.length - 1;
     let lastReview = list[length];
     let lastReviewNum = lastReview.reviewNum;
+    let lastItemInData = this.state.data[this.state.data.length - 1];
+    let lastDataReviewNum = lastItemInData.reviewNum;
     let start;
     let result = [];
     if (list.length === 7) { // prevents nextPageClick from rendering a blank page if at the end of total list of reviews
-      for (var i = 0; i < this.state.data.length; i++) {
-        var temp = this.state.data[i];
-        if (temp.reviewNum === lastReviewNum) {
-          if ((i + 7) < (this.state.data.length - 1)) {
-            start = i + 1;
-            let end = start + 7;
-
-            while (start < end) {
-              result.push(this.state.data[start])
-              start++;
-            };
-
-            this.setState({
-              pageReviews: result
-            })
-            break;
-          } else {
-            for (var j = i + 1; j < this.state.data.length; j++) {
-              result.push(this.state.data[j])
+      // need to check edge case that if page reviews is length 7 but that 7th review is the last then how to prevent from clicking next button which would render 0 reviews
+      if (lastReviewNum !== lastDataReviewNum){
+        for (var i = 0; i < this.state.data.length; i++) {
+          var temp = this.state.data[i];
+          if (temp.reviewNum === lastReviewNum) {
+            if ((i + 7) < (this.state.data.length - 1)) {
+              start = i + 1;
+              let end = start + 7;
+  
+              while (start < end) {
+                result.push(this.state.data[start])
+                start++;
+              };
+  
+              this.setState({
+                pageReviews: result
+              })
+              break;
+            } else {
+              for (var j = i + 1; j < this.state.data.length; j++) {
+                result.push(this.state.data[j])
+              }
+              this.setState({
+                pageReviews: result
+              })
+              break;
             }
-            this.setState({
-              pageReviews: result
-            })
-            break;
           }
-        }
-      };
+        };
+      }
     }
 
 
@@ -184,7 +192,7 @@ class Reviews extends React.Component {
   }
 
   render() {
-    if (this.state.data.length === 0) {
+    if (this.state.data.length === 0 && this.searchActive === false) {
       return <div></div>
     } else {
       return (

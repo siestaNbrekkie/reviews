@@ -4,7 +4,6 @@
   font-size: 16px;
   font-weight: 300;
   padding-top: 17px;
-  /* padding-bottom: 10px; */
   justify-content: space-between;
   max-width: 594px;
 }
@@ -22,7 +21,6 @@
   display: flex;
   flex-direction: row;
   padding-bottom: 16px;
-  /* justify-content: space-between; */
 }
 
 .pbCheckin{
@@ -63,7 +61,6 @@
   display: flex;
   order: 2;
   flex-direction: column;
-  /* justify-content: space-around; */
   min-width: 297px;
   letter-spacing: 0.6px;
 }
@@ -158,15 +155,3 @@ progress[value]::-webkit-progress-value {
   font-size: 14px;
   font-weight: 200;
 }
-
-
-
-
-/* progress[value]{
-  -webkit-appearance: none;
-  appearance: none;
-  background: #008489;
-  width: 92px;
-  height: 4px;
-  margin-top: 7px;
-} */
