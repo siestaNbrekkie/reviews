@@ -34,7 +34,7 @@ class Reviews extends React.Component {
     var parts = document.URL.split("/");
     var lastSegment = parts.pop() || parts.pop();
 
-    Axios.get(`http://localhost:3003/${lastSegment}`)
+    Axios.get(`ec2-52-53-170-45.us-west-1.compute.amazonaws.com/${lastSegment}`) // was  http://localhost:3003
       .then(response => {
         console.log('this is data ', response.data)
         this.setState({
@@ -44,11 +44,11 @@ class Reviews extends React.Component {
           pageReviews: response.data.slice(0, 7)
         })
       })
-      .catch(err => { // did not handle possible errors before
-        console.error("error in setting state")
+      .catch(err => { 
+        console.error(err) // removed hard coded error that was here with err that will be passed
       })
       .finally(() => {
-
+//this is a comment
       });
   };
 
