@@ -34,7 +34,7 @@ class Reviews extends React.Component {
     var parts = document.URL.split("/");
     var lastSegment = parts.pop() || parts.pop();
 
-    Axios.get(`ec2-52-53-170-45.us-west-1.compute.amazonaws.com/${lastSegment}`) // was  http://localhost:3003
+    Axios.get(`http://localhost:3003/${lastSegment}`) // was  http://localhost:3003
       .then(response => {
         console.log('this is data ', response.data)
         this.setState({
@@ -44,7 +44,7 @@ class Reviews extends React.Component {
           pageReviews: response.data.slice(0, 7)
         })
       })
-      .catch(err => { 
+      .catch(err => {
         console.error(err) // removed hard coded error that was here with err that will be passed
       })
       .finally(() => {
@@ -56,13 +56,13 @@ class Reviews extends React.Component {
     if (array.length !== 0) {
       let count = 0;
       let divide = array.length * 6;
-  
+
       array.map(obj => {
         for (var key in obj.ratings) {
           count += obj.ratings[key];
         }
       })
-  
+
       return count / divide;
     } else {
       return 0;
@@ -87,12 +87,12 @@ class Reviews extends React.Component {
             if ((i + 7) < (this.state.data.length - 1)) {
               start = i + 1;
               let end = start + 7;
-  
+
               while (start < end) {
                 result.push(this.state.data[start])
                 start++;
               };
-  
+
               this.setState({
                 pageReviews: result
               })
