@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "start": "nodemon server/index.js",
-    "dev-react": "webpack -d --watch",
+    "dev-react": "webpack",
     "seed-db": "node ./db/reviewsData.js"
   },
   "repository": {
