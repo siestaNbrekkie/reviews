@@ -38,6 +38,15 @@ const getAverage = function (array, key) {
   }
 }
 
+app.use(compression({ filter: shouldCompress }))
+
+function shouldCompress (req, res) {
+  if (req.headers['x-no-compression']) {
+    return false
+  }
+  return compression.filter(req, res)
+}
+
 app.get('/favicon.ico', (req, res) => res.status(204));
 
 app.use(function (req, res, next) {
