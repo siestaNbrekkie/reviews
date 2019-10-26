@@ -16,10 +16,10 @@ var endDate = new Date(2019, 10, 10);
 
 // var populator = function () {
 
-for (var i = 1; i <= 100; i++) {
+for (var i = 1; i <= 20; i++) { // change back to 100
   var start = 1;
   var reviewNumber = 1;
-  while (start <= 100) {
+  while (start <= 20) { // change back to 100
     var each = {
       houseId: i,
       reviewNum: reviewNumber,

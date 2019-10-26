@@ -21,12 +21,18 @@ app.use('/', express.static(path.join(__dirname, '../public')));
 app.use('/rooms/:id', express.static(path.join(__dirname, '../public'))); //rooms/:id
 
 app.get('/:id', (req, res) => {
+  var locationReviewsObject = {};
   //console.log('this should be the numebr 1 ', req.params.id)
   //req.params.id
     Review.find({ houseId: req.params.id }).sort({ date: -1 })
       .then(function (callback) {
-         //console.log('this is the callback ', callback)
-        res.send(callback);
+        locationReviewsObject.data = callback;
+        locationReviewsObject.copyData = callback;
+        locationReviewsObject.count = callback.length;
+        locationReviewsObject.pageReviews = callback.slice(0, 7);
+
+        //console.log('this is the new created object I want to send to the client ', locationReviewsObject)
+        res.send(locationReviewsObject);
       })
 });
 
