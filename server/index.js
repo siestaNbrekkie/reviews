@@ -8,21 +8,21 @@ const app = express();
 
 const PORT = 3003;
 
-const allAverage = function (array) {
-  if (array.length !== 0) {
-    var count = 0;
-    var divide = array.length * 6;
+// const allAverage = function (array) {
+//   if (array.length !== 0) {
+//     var count = 0;
+//     var divide = array.length * 6;
 
-    //console.log('this should be the array of all reviews ', array)
+//     //console.log('this should be the array of all reviews ', array)
 
-    for (var i = 0; i < array.length; i++) {
-      count = count + array[i].ratings.accuracy + array[i].ratings.checkIn + array[i].ratings.cleanliness + array[i].ratings.communication + array[i].ratings.location + array[i].ratings.value
-    }
-    return count / divide;
-  } else {
-    return 0;
-  }
-};
+//     for (var i = 0; i < array.length; i++) {
+//       count = count + array[i].ratings.accuracy + array[i].ratings.checkIn + array[i].ratings.cleanliness + array[i].ratings.communication + array[i].ratings.location + array[i].ratings.value
+//     }
+//     return count / divide;
+//   } else {
+//     return 0;
+//   }
+// };
 
 
 const getAverage = function (array, key) {
@@ -66,7 +66,7 @@ app.get('/:id', (req, res) => {
       locationReviewsObject.communication = getAverage(callback, 'communication').toFixed(1);
       locationReviewsObject.location = getAverage(callback, 'location').toFixed(1);
       locationReviewsObject.value = getAverage(callback, 'value').toFixed(1);
-      locationReviewsObject.totalAverage = allAverage(callback).toFixed(2);
+      // locationReviewsObject.totalAverage = allAverage(callback).toFixed(2);
 
       //console.log('this is the new created object I want to send to the client ', locationReviewsObject)
       res.send(locationReviewsObject);

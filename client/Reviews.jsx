@@ -23,13 +23,13 @@ class Reviews extends React.Component {
       pageReviews: [],
       search: '',
       searchActive: false,
-      totalAverage: 0,
       accuracy: 0,
       checkIn: 0,
       cleanliness: 0,
       communication: 0,
       location: 0,
       value: 0
+      //totalAverage: 0,
     };
   }
 
@@ -49,23 +49,39 @@ class Reviews extends React.Component {
           copyData: response.data.copyData,
           count: response.data.count,
           pageReviews: response.data.pageReviews,
-          totalAverage: response.data.totalAverage,
           accuracy: response.data.accuracy,
           checkIn: response.data.checkIn,
           cleanliness: response.data.cleanliness,
           communication: response.data.communication,
           location: response.data.location,
           value: response.data.value
+          //totalAverage: response.data.totalAverage,
         })
       })
       .catch(err => {
         console.error(err) // removed hard coded error that was here with err that will be passed
       })
       .finally(() => {
-       //this is a comment
+//this is a comment
       });
   };
 
+  allAverage(array) {
+    if (array.length !== 0) {
+      let count = 0;
+      let divide = array.length * 6;
+
+      array.map(obj => {
+        for (var key in obj.ratings) {
+          count += obj.ratings[key];
+        }
+      })
+
+      return count / divide;
+    } else {
+      return 0;
+    }
+  };
 
   nextPageClick() {
     let list = this.state.pageReviews;
@@ -207,7 +223,7 @@ class Reviews extends React.Component {
                   <span>&#9733;</span>
                 </div>
                 <div className={styles.number}>
-                  {this.state.totalAverage}
+                  {this.allAverage(this.state.copyData).toFixed(2)}
                 </div>
               </div>
               <div className={styles.borderBar}>
