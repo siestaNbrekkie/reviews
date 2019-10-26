@@ -22,7 +22,13 @@ class Reviews extends React.Component {
       count: 0,
       pageReviews: [],
       search: '',
-      searchActive: false
+      searchActive: false,
+      accuracy: 0,
+      checkIn: 0,
+      cleanliness: 0,
+      communication: 0,
+      location: 0,
+      value: 0
     };
   }
 
@@ -41,7 +47,13 @@ class Reviews extends React.Component {
           data: response.data.data,
           copyData: response.data.copyData,
           count: response.data.count,
-          pageReviews: response.data.pageReviews
+          pageReviews: response.data.pageReviews,
+          accuracy: response.data.accuracy,
+          checkIn: response.data.checkIn,
+          cleanliness: response.data.cleanliness,
+          communication: response.data.communication,
+          location: response.data.location,
+          value: response.data.value
         })
       })
       .catch(err => {
@@ -165,7 +177,7 @@ class Reviews extends React.Component {
       }
     }
 
-    console.log('this is data after search ', result)
+    //console.log('this is data after search ', result)
 
     if (result.length > 7) {
       this.setState({
@@ -230,7 +242,7 @@ class Reviews extends React.Component {
           <div className={styles.borderLine}>
           </div>
           <div>
-            <Ratings scores={this.state.data} searchActive={this.state.searchActive} wordSearched={this.state.search} backButton={this.backToAllReviews} />
+            <Ratings scores={this.state.data} accuracy={this.state.accuracy} checkIn={this.state.checkIn} cleanliness={this.state.cleanliness} communication={this.state.communication} location={this.state.location} value={this.state.value} searchActive={this.state.searchActive} wordSearched={this.state.search} backButton={this.backToAllReviews} />
           </div>
           <div>
             <ReviewList reviews={this.state.pageReviews} clickNext={this.nextPageClick} clickPrevious={this.previousPageClick} />
