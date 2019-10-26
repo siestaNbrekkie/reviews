@@ -38,10 +38,10 @@ class Reviews extends React.Component {
       .then(response => {
         //console.log('this is data ', response.data)
         this.setState({
-          data: response.data,
-          copyData: response.data,
-          count: response.data.length,
-          pageReviews: response.data.slice(0, 7)
+          data: response.data.data,
+          copyData: response.data.copyData,
+          count: response.data.count,
+          pageReviews: response.data.pageReviews
         })
       })
       .catch(err => {
