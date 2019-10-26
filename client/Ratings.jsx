@@ -8,18 +8,18 @@ class Ratings extends React.Component {
     super(props);
   }
 
-  getAverage(array, key) {
-    if (array.length !== 0) {
-      let total = 0;
-      const arrLength = array.length
-      array.map(obj => {
-        total += obj.ratings[key]
-      })
-      return total/arrLength;
-    } else {
-      return 0;
-    }
-  }
+  // getAverage(array, key) {
+  //   if (array.length !== 0) {
+  //     let total = 0;
+  //     const arrLength = array.length
+  //     array.map(obj => {
+  //       total += obj.ratings[key]
+  //     })
+  //     return total/arrLength;
+  //   } else {
+  //     return 0;
+  //   }
+  // }
 
   render() {
     if (!this.props.searchActive) { // if search is not active, display the ratings
@@ -31,9 +31,9 @@ class Ratings extends React.Component {
               Check-in
               </div>
               <div className={styles.pbCheckin}>
-                <progress max="5" value={this.getAverage(this.props.scores, 'checkIn')}></progress>
+                <progress max="5" value={this.props.checkIn}></progress>
                   <div className={styles.pbNum}>
-                    {this.getAverage(this.props.scores, 'checkIn').toFixed(1)}
+                    {this.props.checkIn}
                   </div>
               </div>
             </div>
@@ -42,9 +42,9 @@ class Ratings extends React.Component {
               Accuracy
               </div>
               <div className={styles.pbAccuracy}>
-                <progress max="5.0" value={this.getAverage(this.props.scores, 'accuracy')}></progress>
+                <progress max="5.0" value={this.props.accuracy}></progress>
                 <div className={styles.pbNum}>
-                {this.getAverage(this.props.scores, 'accuracy').toFixed(1)}
+                {this.props.accuracy}
                 </div>
               </div>
             </div>
@@ -53,9 +53,9 @@ class Ratings extends React.Component {
               Cleanliness
               </div>
               <div className={styles.pbCleanliness}>
-                <progress max="5" value={this.getAverage(this.props.scores, 'cleanliness')}></progress>
+                <progress max="5" value={this.props.cleanliness}></progress>
                 <div className={styles.pbNum}>
-                {this.getAverage(this.props.scores, 'cleanliness').toFixed(1)}
+                {this.props.cleanliness}
                 </div>
               </div>
             </div>
@@ -66,9 +66,9 @@ class Ratings extends React.Component {
               Communication
               </div>
               <div className={styles.pbCommunication}>
-                <progress max="5" value={this.getAverage(this.props.scores, 'communication')}></progress>
+                <progress max="5" value={this.props.communication}></progress>
                 <div className={styles.pbNum}>
-                {this.getAverage(this.props.scores, 'communication').toFixed(1)}
+                {this.props.communication}
                 </div>
               </div>
             </div>
@@ -77,9 +77,9 @@ class Ratings extends React.Component {
               Location
               </div>
               <div className={styles.pbLocation}>
-                <progress max="5" value={this.getAverage(this.props.scores, 'location')}></progress>
+                <progress max="5" value={this.props.location}></progress>
                 <div className={styles.pbNum}>
-                {this.getAverage(this.props.scores, 'location').toFixed(1)}
+                {this.props.location}
                 </div>
               </div>
             </div>
@@ -88,9 +88,9 @@ class Ratings extends React.Component {
               Value
               </div>
               <div className={styles.pbValue}>
-                <progress max="5" value={this.getAverage(this.props.scores, 'value')}></progress>
+                <progress max="5" value={this.props.value}></progress>
                 <div className={styles.pbNum}>
-                {this.getAverage(this.props.scores, 'value').toFixed(1)}
+                {this.props.value}
                 </div>
               </div>
             </div>
