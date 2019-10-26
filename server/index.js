@@ -1,11 +1,14 @@
+const compression = require('compression');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const Review = require('../db/reviewsDb.js')
+const Review = require('../db/reviewsDb.js');
 
 const app = express();
 
 const PORT = 3003;
+
+app.use(compression());
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
@@ -26,5 +29,7 @@ app.get('/:id', (req, res) => {
         res.send(callback);
       })
 });
+
+app.get('/favicon.ico', (req, res) => res.status(204));
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

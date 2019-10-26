@@ -36,7 +36,7 @@ class Reviews extends React.Component {
 
     Axios.get(`http://localhost:3003/${lastSegment}`) // was  http://localhost:3003
       .then(response => {
-        console.log('this is data ', response.data)
+        //console.log('this is data ', response.data)
         this.setState({
           data: response.data,
           copyData: response.data,
