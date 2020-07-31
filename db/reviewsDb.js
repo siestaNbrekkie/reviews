@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 // var data = require('./reviewsData.js');
 
-mongoose.connect('mongodb://localhost/reviews', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/reviews', { useNewUrlParser: true, useUnifiedTopology: true });
 
 var db = mongoose.connection;
 
