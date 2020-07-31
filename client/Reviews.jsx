@@ -5,6 +5,7 @@ import ReviewList from './ReviewList.jsx';
 import Search from './Search.jsx';
 import Ratings from './Ratings.jsx';
 import styles from './styles/AppStyle.css';
+import ReactPaginate from 'react-paginate';
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -28,14 +29,14 @@ class Reviews extends React.Component {
       cleanliness: 0,
       communication: 0,
       location: 0,
-      value: 0
-      //totalAverage: 0,
+      value: 0,
+      offset: 0,
+      data: [],
+      perPage: 7,
+      currentPage: 0,
+      pageCount: 0
     };
   }
-
-  componentDidMount() {
-    this.getData();
-  };
 
   getData() {
     var parts = document.URL.split("/");
@@ -44,6 +45,9 @@ class Reviews extends React.Component {
     Axios.get(`http://localhost:3003/${lastSegment}`) // was  http://localhost:3003
       .then(response => {
         //console.log('this is data ', response.data)
+        const pagData = response.data;
+        //const pagSlice = pagData.slice(this.state.offset, this.state.offset + this.state.perPage);
+        
         this.setState({
           data: response.data.data,
           copyData: response.data.copyData,
@@ -54,7 +58,8 @@ class Reviews extends React.Component {
           cleanliness: response.data.cleanliness,
           communication: response.data.communication,
           location: response.data.location,
-          value: response.data.value
+          value: response.data.value,
+          pageCount: Math.ceil(pagData.length / this.state.perPage)
           //totalAverage: response.data.totalAverage,
         })
       })
@@ -64,6 +69,10 @@ class Reviews extends React.Component {
       .finally(() => {
 //this is a comment
       });
+  };
+
+  componentDidMount() {
+    this.getData();
   };
 
   allAverage(array) {
@@ -249,6 +258,18 @@ class Reviews extends React.Component {
           <div>
             <ReviewList reviews={this.state.pageReviews} clickNext={this.nextPageClick} clickPrevious={this.previousPageClick} />
           </div>
+          <ReactPaginate 
+            previousLabel={"prev"}
+            nextLabel={"next"}
+            breakLabel={"..."}
+            breakClassName={"break-me"}
+            pageCount={this.state.pageCount}
+            marginPagesDisplayed={3}
+            pageRangeDisplayed={5}
+            onPageChange={this.handlePageClick}
+            containerClassName={"pagination"}
+          />
+
         </div>
       )
     }
