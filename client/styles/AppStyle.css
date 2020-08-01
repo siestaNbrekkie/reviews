@@ -117,6 +117,12 @@
   outline: none;
 }
 
+.break {
+  color: rgb(0, 132, 137);
+  cursor: pointer;
+  outline: none;
+}
+
 .breakMe {
   color: rgb(0, 132, 137);
   cursor: pointer;

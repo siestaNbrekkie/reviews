@@ -11,7 +11,7 @@ class ReviewList extends React.Component {
   render() {
     const reviews = this.props.reviews;
     return (
-      <div>
+      <div className={styles.listContainer}>
         <ul className={styles.unorderedList}>
           {reviews.map((review) =>
             <ReviewListItem
@@ -20,7 +20,7 @@ class ReviewList extends React.Component {
             />
           )}
         </ul>
-        <div className={styles.buttonContainer}>
+        {/* <div className={styles.buttonContainer}>
           <div className={styles.chevronHolder}>
             <button onClick={this.props.clickPrevious}>
               <div>
@@ -28,21 +28,6 @@ class ReviewList extends React.Component {
               </div>
             </button>
           </div>
-          {/* <div className={styles.numberButton}>
-            <button> 1 </button>
-          </div>
-          <div className={styles.numberButton}>
-            <button> 2 </button>
-          </div>
-          <div className={styles.numberButton}>
-            <button> 3 </button>
-          </div>
-          <div className={styles.numberButton}>
-            <button> 4 </button>
-          </div>
-          <div className={styles.numberButton}>
-            <button> 5 </button>
-          </div> */}
           <div className={styles.chevronHolder}>
             <button onClick={this.props.clickNext}>
               <div>
@@ -50,7 +35,7 @@ class ReviewList extends React.Component {
               </div>
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
     )
   }
