@@ -34,10 +34,11 @@ class Reviews extends React.Component {
       offset: 0,
       currentPage: 0
     };
+
+    this.myDivToFocus = React.createRef();
   }
 
   getData() {
-    console.log('getData has run')
     var parts = document.URL.split("/");
     var lastSegment = parts.pop() || parts.pop();
 
@@ -45,7 +46,6 @@ class Reviews extends React.Component {
       .then(response => {
         const pagData = response.data.data;
         const pagSlice = pagData.slice(this.state.offset, this.state.offset + this.state.perPage);
-        console.log('this is pagSlice', pagSlice)
         
         this.setState({
           data: response.data.data,
@@ -70,7 +70,6 @@ class Reviews extends React.Component {
   };
 
   getPage(num) {
-    console.log(num.selected);
     const selectedPage = num.selected;
     const pageOffset = selectedPage * this.state.perPage;
     const dataCopy = this.state.data.slice();
@@ -81,6 +80,12 @@ class Reviews extends React.Component {
       offset: pageOffset,
       pageReviews: slice
     })
+    if(this.myDivToFocus.current) {
+      this.myDivToFocus.current.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+      })
+    }
   };
 
   componentDidMount() {
@@ -140,8 +145,8 @@ class Reviews extends React.Component {
         currentPage: 0
       })
     }
-
     event.preventDefault();
+    event.target.reset();
   };
 
   backToAllReviews() {
@@ -185,6 +190,7 @@ class Reviews extends React.Component {
           <div>
             <Ratings scores={this.state.data} accuracy={this.state.accuracy} checkIn={this.state.checkIn} cleanliness={this.state.cleanliness} communication={this.state.communication} location={this.state.location} value={this.state.value} searchActive={this.state.searchActive} wordSearched={this.state.search} backButton={this.backToAllReviews} />
           </div>
+          <div ref={this.myDivToFocus}></div>
           <div>
             <ReviewList reviews={this.state.pageReviews} clickNext={this.nextPageClick} clickPrevious={this.previousPageClick} />
           </div>

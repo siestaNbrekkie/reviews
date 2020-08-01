@@ -49,7 +49,6 @@ app.get('/:id', (req, res) => {
       locationReviewsObject.data = callback;
       locationReviewsObject.copyData = callback;
       locationReviewsObject.count = callback.length;
-      // locationReviewsObject.pageReviews = callback.slice(0, 7);
       locationReviewsObject.pageReviews = callback;
       locationReviewsObject.checkIn = getAverage(callback, 'checkIn').toFixed(1);
       locationReviewsObject.accuracy = getAverage(callback, 'accuracy').toFixed(1);

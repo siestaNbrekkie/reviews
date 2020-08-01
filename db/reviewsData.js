@@ -12,14 +12,12 @@ var zeroThroughFive = function getRandomArbitrary(min, max) {
 };
 var startDate = new Date(2018, 01, 01);
 var endDate = new Date(2019, 10, 10);
-//DateGenerator.getRandomDateInRange(startDate, endDate);
 
-// var populator = function () {
 
-for (var i = 1; i <= 20; i++) { // change back to 100
+for (var i = 1; i <= 100; i++) { // change back to 100
   var start = 1;
   var reviewNumber = 1;
-  while (start <= 20) { // change back to 100
+  while (start <= 100) { // change back to 100
     var each = {
       houseId: i,
       reviewNum: reviewNumber,
@@ -51,12 +49,4 @@ async function asyncCall(){
 }
 
 asyncCall();
-
-
-
-// };
-
-// populator();
-
-// module.exports = data;
 
