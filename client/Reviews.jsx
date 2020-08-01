@@ -16,6 +16,7 @@ class Reviews extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.backToAllReviews = this.backToAllReviews.bind(this);
+    this.getPage = this.getPage.bind(this);
 
     this.state = {
       data: [],
@@ -30,22 +31,36 @@ class Reviews extends React.Component {
       communication: 0,
       location: 0,
       value: 0,
+      perPage: 7,
+      offset: 0,
+      currentPage: 0
+    };
+
+    /*
+    this.state = {
       offset: 0,
       data: [],
       perPage: 7,
-      currentPage: 0,
-      pageCount: 0
-    };
+      currentPage: 0
+    }
+
+
+    */
+
+    
   }
 
   getData() {
+    console.log('getData has run')
     var parts = document.URL.split("/");
     var lastSegment = parts.pop() || parts.pop();
 
     Axios.get(`http://localhost:3003/${lastSegment}`) // was  http://localhost:3003
       .then(response => {
-        //console.log('this is data ', response.data)
-        const pagData = response.data;
+        const pagData = response.data.data;
+        // console.log(pagData)
+        // console.log('this is data length', pagData.length)
+        // console.log('this is page count', Math.ceil(pagData.length/this.state.perPage))
         //const pagSlice = pagData.slice(this.state.offset, this.state.offset + this.state.perPage);
         
         this.setState({
@@ -59,7 +74,8 @@ class Reviews extends React.Component {
           communication: response.data.communication,
           location: response.data.location,
           value: response.data.value,
-          pageCount: Math.ceil(pagData.length / this.state.perPage)
+          pageCount: Math.ceil(pagData.length / this.state.perPage),
+          searchActive: false
           //totalAverage: response.data.totalAverage,
         })
       })
@@ -67,9 +83,22 @@ class Reviews extends React.Component {
         console.error(err) // removed hard coded error that was here with err that will be passed
       })
       .finally(() => {
-//this is a comment
+        //this is a comment
       });
   };
+
+  
+  // getPage = data => {
+  //   console.log(data.selected)
+  //   // Axios.get(`page/num`)    
+  // }
+
+  getPage(num) {
+    console.log(num.selected);
+    const selectedPage = num.selected;
+    const offset = this.state.offset
+    Axios.get(`page/`)
+  }
 
   componentDidMount() {
     this.getData();
@@ -208,14 +237,7 @@ class Reviews extends React.Component {
   };
 
   backToAllReviews() {
-    let originalData = this.state.copyData;
-
-    this.setState({
-      data: originalData,
-      searchActive: false,
-      pageReviews: originalData.slice(0, 7)
-    })
-
+    return this.getData()
   }
 
   render() {
@@ -264,9 +286,9 @@ class Reviews extends React.Component {
             breakLabel={"..."}
             breakClassName={"break-me"}
             pageCount={this.state.pageCount}
-            marginPagesDisplayed={3}
-            pageRangeDisplayed={5}
-            onPageChange={this.handlePageClick}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={2}
+            onPageChange={this.getPage}
             containerClassName={"pagination"}
           />
 
