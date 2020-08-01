@@ -125,13 +125,19 @@ class Reviews extends React.Component {
       this.setState({
         data: result,
         pageReviews: result.slice(0, 7),
-        searchActive: true
+        searchActive: true,
+        pageCount: Math.ceil(result.length / this.state.perPage),
+        offset: 0,
+        currentPage: 0
       })
     } else {
       this.setState({
         data: result,
         pageReviews: result,
-        searchActive: true
+        searchActive: true,
+        pageCount: 1,
+        offset: 0,
+        currentPage: 0
       })
     }
 
