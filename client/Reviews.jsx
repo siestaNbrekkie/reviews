@@ -34,6 +34,8 @@ class Reviews extends React.Component {
       offset: 0,
       currentPage: 0
     };
+
+    this.myDivToFocus = React.createRef();
   }
 
   getData() {
@@ -81,6 +83,12 @@ class Reviews extends React.Component {
       offset: pageOffset,
       pageReviews: slice
     })
+    if(this.myDivToFocus.current) {
+      this.myDivToFocus.current.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+      })
+    }
   };
 
   componentDidMount() {
@@ -140,8 +148,8 @@ class Reviews extends React.Component {
         currentPage: 0
       })
     }
-
     event.preventDefault();
+    event.target.reset();
   };
 
   backToAllReviews() {
@@ -185,6 +193,7 @@ class Reviews extends React.Component {
           <div>
             <Ratings scores={this.state.data} accuracy={this.state.accuracy} checkIn={this.state.checkIn} cleanliness={this.state.cleanliness} communication={this.state.communication} location={this.state.location} value={this.state.value} searchActive={this.state.searchActive} wordSearched={this.state.search} backButton={this.backToAllReviews} />
           </div>
+          <div ref={this.myDivToFocus}></div>
           <div>
             <ReviewList reviews={this.state.pageReviews} clickNext={this.nextPageClick} clickPrevious={this.previousPageClick} />
           </div>
