@@ -265,7 +265,6 @@ class Reviews extends React.Component {
           </div>
           <div className={styles.paginationSection}>
             <ReactPaginate 
-              // previousLabel={"<"}
               previousLabel={<FontAwesomeIcon icon={faChevronLeft} size="lg" className={styles.leftChevron} />}
               nextLabel={<FontAwesomeIcon icon={faChevronRight} size="lg" className={styles.rightChevron} />}
               breakLabel={"..."}
