@@ -35,19 +35,6 @@ class Reviews extends React.Component {
       offset: 0,
       currentPage: 0
     };
-
-    /*
-    this.state = {
-      offset: 0,
-      data: [],
-      perPage: 7,
-      currentPage: 0
-    }
-
-
-    */
-
-    
   }
 
   getData() {
@@ -65,7 +52,8 @@ class Reviews extends React.Component {
           data: response.data.data,
           copyData: response.data.copyData,
           count: response.data.count,
-          pageReviews: response.data.pageReviews,
+          // pageReviews: response.data.pageReviews,
+          pageReviews: pagSlice,
           accuracy: response.data.accuracy,
           checkIn: response.data.checkIn,
           cleanliness: response.data.cleanliness,
@@ -94,9 +82,16 @@ class Reviews extends React.Component {
   getPage(num) {
     console.log(num.selected);
     const selectedPage = num.selected;
-    const offset = this.state.offset
-    Axios.get(`page/`)
-  }
+    const pageOffset = selectedPage * this.state.perPage;
+    const dataCopy = this.state.data.slice();
+    const slice = dataCopy.slice(pageOffset, pageOffset + this.state.perPage);
+
+    this.setState({
+      currentPage: selectedPage,
+      offset: pageOffset,
+      pageReviews: slice
+    })
+  };
 
   componentDidMount() {
     this.getData();
@@ -278,17 +273,24 @@ class Reviews extends React.Component {
           <div>
             <ReviewList reviews={this.state.pageReviews} clickNext={this.nextPageClick} clickPrevious={this.previousPageClick} />
           </div>
-          <ReactPaginate 
-            previousLabel={"prev"}
-            nextLabel={"next"}
-            breakLabel={"..."}
-            breakClassName={"break-me"}
-            pageCount={this.state.pageCount}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={2}
-            onPageChange={this.getPage}
-            containerClassName={"pagination"}
-          />
+          <div className={styles.paginationSection}>
+            <ReactPaginate 
+              previousLabel={"<"}
+              nextLabel={">"}
+              breakLabel={"..."}
+              breakClassName={styles.break}
+              pageCount={this.state.pageCount}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={2}
+              onPageChange={this.getPage}
+              containerClassName={styles.pagination}
+              pageClassName={styles.pagLi}
+              subContainerClassName={"pages pagination"}
+              activeClassName={styles.active}
+              nextClassName={styles.next}
+              previousClassName={styles.previous}
+            />
+          </div>
 
         </div>
       )
