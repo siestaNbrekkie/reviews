@@ -1,11 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Axios from 'axios';
 import ReviewList from './ReviewList.jsx';
 import Search from './Search.jsx';
 import Ratings from './Ratings.jsx';
 import styles from './styles/AppStyle.css';
 import ReactPaginate from 'react-paginate';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class Reviews extends React.Component {
     var parts = document.URL.split("/");
     var lastSegment = parts.pop() || parts.pop();
 
-    Axios.get(`http://localhost:3003/${lastSegment}`) // was  http://localhost:3003
+    Axios.get(`http://localhost:3003/${lastSegment}`)
       .then(response => {
         const pagData = response.data.data;
         const pagSlice = pagData.slice(this.state.offset, this.state.offset + this.state.perPage);
@@ -52,7 +53,6 @@ class Reviews extends React.Component {
           data: response.data.data,
           copyData: response.data.copyData,
           count: response.data.count,
-          // pageReviews: response.data.pageReviews,
           pageReviews: pagSlice,
           accuracy: response.data.accuracy,
           checkIn: response.data.checkIn,
@@ -62,22 +62,14 @@ class Reviews extends React.Component {
           value: response.data.value,
           pageCount: Math.ceil(pagData.length / this.state.perPage),
           searchActive: false
-          //totalAverage: response.data.totalAverage,
         })
       })
       .catch(err => {
-        console.error(err) // removed hard coded error that was here with err that will be passed
+        console.error(err)
       })
       .finally(() => {
-        //this is a comment
       });
   };
-
-  
-  // getPage = data => {
-  //   console.log(data.selected)
-  //   // Axios.get(`page/num`)    
-  // }
 
   getPage(num) {
     console.log(num.selected);
@@ -210,8 +202,6 @@ class Reviews extends React.Component {
       }
     }
 
-    //console.log('this is data after search ', result)
-
     if (result.length > 7) {
       this.setState({
         data: result,
@@ -275,8 +265,9 @@ class Reviews extends React.Component {
           </div>
           <div className={styles.paginationSection}>
             <ReactPaginate 
-              previousLabel={"<"}
-              nextLabel={">"}
+              // previousLabel={"<"}
+              previousLabel={<FontAwesomeIcon icon={faChevronLeft} size="lg" className={styles.leftChevron} />}
+              nextLabel={<FontAwesomeIcon icon={faChevronRight} size="lg" className={styles.rightChevron} />}
               breakLabel={"..."}
               breakClassName={styles.break}
               pageCount={this.state.pageCount}
@@ -297,8 +288,5 @@ class Reviews extends React.Component {
     }
   }
 }
-
-
-// ReactDOM.render(<App />, document.getElementById('app'));
 
 export default Reviews;
