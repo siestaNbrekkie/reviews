@@ -5,6 +5,8 @@ import Search from './Search.jsx';
 import Ratings from './Ratings.jsx';
 import styles from './styles/AppStyle.css';
 import ReactPaginate from 'react-paginate';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -263,8 +265,9 @@ class Reviews extends React.Component {
           </div>
           <div className={styles.paginationSection}>
             <ReactPaginate 
-              previousLabel={"<"}
-              nextLabel={">"}
+              // previousLabel={"<"}
+              previousLabel={<FontAwesomeIcon icon={faChevronLeft} size="lg" className={styles.leftChevron} />}
+              nextLabel={<FontAwesomeIcon icon={faChevronRight} size="lg" className={styles.rightChevron} />}
               breakLabel={"..."}
               breakClassName={styles.break}
               pageCount={this.state.pageCount}

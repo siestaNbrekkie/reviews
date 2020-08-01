@@ -1,8 +1,6 @@
 import React from 'react';
 import ReviewListItem from './ReviewListItem.jsx';
 import styles from './styles/reviewListStyle.css'
-import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class ReviewList extends React.Component {
   constructor(props) {
@@ -20,22 +18,6 @@ class ReviewList extends React.Component {
             />
           )}
         </ul>
-        {/* <div className={styles.buttonContainer}>
-          <div className={styles.chevronHolder}>
-            <button onClick={this.props.clickPrevious}>
-              <div>
-                <FontAwesomeIcon icon={faChevronLeft} size="lg" className={styles.leftChevron} />
-              </div>
-            </button>
-          </div>
-          <div className={styles.chevronHolder}>
-            <button onClick={this.props.clickNext}>
-              <div>
-                <FontAwesomeIcon icon={faChevronRight} size="lg" className={styles.rightChevron} />
-              </div>
-            </button>
-          </div>
-        </div> */}
       </div>
     )
   }
