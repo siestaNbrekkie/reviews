@@ -58,10 +58,8 @@ class Reviews extends React.Component {
     Axios.get(`http://localhost:3003/${lastSegment}`) // was  http://localhost:3003
       .then(response => {
         const pagData = response.data.data;
-        // console.log(pagData)
-        // console.log('this is data length', pagData.length)
-        // console.log('this is page count', Math.ceil(pagData.length/this.state.perPage))
-        //const pagSlice = pagData.slice(this.state.offset, this.state.offset + this.state.perPage);
+        const pagSlice = pagData.slice(this.state.offset, this.state.offset + this.state.perPage);
+        console.log('this is pagSlice', pagSlice)
         
         this.setState({
           data: response.data.data,
