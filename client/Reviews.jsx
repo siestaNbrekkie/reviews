@@ -39,7 +39,6 @@ class Reviews extends React.Component {
   }
 
   getData() {
-    console.log('getData has run')
     var parts = document.URL.split("/");
     var lastSegment = parts.pop() || parts.pop();
 
@@ -47,7 +46,6 @@ class Reviews extends React.Component {
       .then(response => {
         const pagData = response.data.data;
         const pagSlice = pagData.slice(this.state.offset, this.state.offset + this.state.perPage);
-        console.log('this is pagSlice', pagSlice)
         
         this.setState({
           data: response.data.data,
@@ -72,7 +70,6 @@ class Reviews extends React.Component {
   };
 
   getPage(num) {
-    console.log(num.selected);
     const selectedPage = num.selected;
     const pageOffset = selectedPage * this.state.perPage;
     const dataCopy = this.state.data.slice();
