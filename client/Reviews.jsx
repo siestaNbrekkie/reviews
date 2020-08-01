@@ -80,6 +80,7 @@ class Reviews extends React.Component {
       offset: pageOffset,
       pageReviews: slice
     })
+    // add functionality to scroll back to first review
     if(this.myDivToFocus.current) {
       this.myDivToFocus.current.scrollIntoView({
         behavior: "smooth",
@@ -146,6 +147,7 @@ class Reviews extends React.Component {
       })
     }
     event.preventDefault();
+    // remove search from input once enter has been hit
     event.target.reset();
   };
 
